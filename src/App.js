@@ -1,25 +1,34 @@
-import React, { Component } from "react";
-import Navbar from "./components/navbar";
-import Counters from "./components/counters";
+import React,{Component} from 'react';
+import './App.css';
+import MyScreen from './components/MyScreen';
+import ButtonGroup from './components/ButtonGroup';
+import {store} from './store';
 import { connect } from "react-redux";
 
 class App extends Component {
-  render() {
-    return (
-      <React.Fragment>
-        <Navbar
-          totalCount={this.props.counters.filter(c => c.value > 0).length}
-        />
-        <Counters />
-      </React.Fragment>
-    );
-  }
+
+  state = store.getState();
+
+  render(){
+    
+    console.log(this.props);
+  return (
+    <div>
+    <MyScreen key={1} tech={this.props.mdata.tech} />
+    <ButtonGroup key={2} technologies={["React", "Elm", "React-redux"]} />
+    </div>
+    
+  );
+}
 }
 
-const mapStoreToProps = state => {
-  return {
-    counters: state.counters
-  };
-};
+const mapStateToProps = state => ({
+  mdata: state.datafile,
+  mdata1:state
+  
+});
 
-export default connect(mapStoreToProps)(App);
+export default connect(
+  mapStateToProps
+)((App));
+
