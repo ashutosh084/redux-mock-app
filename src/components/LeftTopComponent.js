@@ -15,7 +15,7 @@ class LeftTopComponent extends Component {
                         margin: "5% 0"
                     }}
                 >
-                    <div class="row" style={{ padding: "5% 0 0 50%" }}>
+                    <div class="row" style={{ padding: "5% 0 0 40%" }}>
                         <MyScreen key={1} tech={this.props.mdata.tech} />
                     </div>
                     <div class="row" style={{ padding: "5% 0 10% 30%" }}>

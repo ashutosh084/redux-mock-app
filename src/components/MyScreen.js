@@ -2,7 +2,17 @@ import React, { Component } from "react";
 
 class MyScreen extends Component {
     render() {
-        return <div>{this.props.tech}</div>;
+        return (
+            <div
+                style={{
+                    fontSize: "30px",
+                    color: "#ffffff",
+                    fontWeight: "900"
+                }}
+            >
+                {this.props.tech}
+            </div>
+        );
     }
 }
 
