@@ -1,1 +1,0 @@
-export const MY_WORK_BOARD='CALL_WORK_CARD'; 

@@ -1,26 +1,36 @@
-import React from "react";
-import {store} from "../store";
-import setTechnology from "../action";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { changeLeft, changeRight } from "../action/action";
 
-const ButtonGroup = ({ technologies }) => (
-  <div>
-    {technologies.map((tech, i) => (
-      <button
-        data-tech={tech}
-        key={`btn-${i}`}
-        className="hello-btn"
-        onClick={dispatchBtnAction}
-      >
-        {tech}
-      </button>
-    ))}
-  </div>
-);
-
-function dispatchBtnAction(e) {
-    const tech = e.target.dataset.tech; //will get the data attribute set on the button, data-tech . 
-    store.dispatch(setTechnology(tech));// how you dispatch an action in Redux, and setTechnology() 
-                                        //   is the action creator we wrote earlier!                                 
+class ButtonGroup extends Component {
+    render() {
+        return (
+            <div>
+                {this.props.technologies.map((tech, i) => (
+                    <button
+                        key={`btn-${i}`}
+                        onClick={
+                            this.props.side === "left"
+                                ? () => this.props.callChangeLeft(tech)
+                                : () => this.props.callChangeRight(tech)
+                        }
+                    >
+                        {tech}
+                    </button>
+                ))}
+            </div>
+        );
+    }
 }
 
-export default ButtonGroup;
+const mapDispatchToProps = dispatch => {
+    return {
+        callChangeLeft: tech => dispatch(changeLeft(tech)),
+        callChangeRight: tech => dispatch(changeRight(tech))
+    };
+};
+
+export default connect(
+    null,
+    mapDispatchToProps
+)(ButtonGroup);

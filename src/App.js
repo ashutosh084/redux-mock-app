@@ -1,34 +1,40 @@
-import React,{Component} from 'react';
-import './App.css';
-import MyScreen from './components/MyScreen';
-import ButtonGroup from './components/ButtonGroup';
-import {store} from './store';
-import { connect } from "react-redux";
+import React, { Component } from "react";
+import "./App.css";
+import RightComponent from "./components/RightComponent";
+import LeftComponent from "./components/LeftComponent";
 
 class App extends Component {
-
-  state = store.getState();
-
-  render(){
-    
-    console.log(this.props);
-  return (
-    <div>
-    <MyScreen key={1} tech={this.props.mdata.tech} />
-    <ButtonGroup key={2} technologies={["React", "Elm", "React-redux"]} />
-    </div>
-    
-  );
+    render() {
+        return (
+            <div
+                style={{
+                    display: "flex",
+                    background: "#435368",
+                    width: "100vw",
+                    height: "100vh"
+                }}
+            >
+                <div style={{ width: "50%" }}>
+                    <div>
+                        <h1 style={{ color: "#ffffff", paddingLeft: "30%" }}>
+                            Without Saga
+                        </h1>
+                    </div>
+                    <LeftComponent />
+                    <RightComponent />
+                </div>
+                <div style={{ width: "50%" }}>
+                    <div>
+                        <h1 style={{ color: "#ffffff", paddingLeft: "30%" }}>
+                            With Saga
+                        </h1>
+                    </div>
+                    <LeftComponent />
+                    <RightComponent />
+                </div>
+            </div>
+        );
+    }
 }
-}
 
-const mapStateToProps = state => ({
-  mdata: state.datafile,
-  mdata1:state
-  
-});
-
-export default connect(
-  mapStateToProps
-)((App));
-
+export default App;
