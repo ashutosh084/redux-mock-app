@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { changeLeft, changeRight } from "../action/action";
+import {
+    changeLeftTop,
+    changeLeftDown,
+    changeRightTop,
+    changeRightDown
+} from "../action/action";
 
 class ButtonGroup extends Component {
     render() {
@@ -10,9 +15,14 @@ class ButtonGroup extends Component {
                     <button
                         key={`btn-${i}`}
                         onClick={
-                            this.props.side === "left"
-                                ? () => this.props.callChangeLeft(tech)
-                                : () => this.props.callChangeRight(tech)
+                            (this.props.side === "leftTop" &&
+                                (() => this.props.callChangeLeftTop(tech))) ||
+                            (this.props.side === "leftDown" &&
+                                (() => this.props.callChangeLeftDown(tech))) ||
+                            (this.props.side === "rightTop" &&
+                                (() => this.props.callChangeRightTop(tech))) ||
+                            (this.props.side === "rightDown" &&
+                                (() => this.props.callChangeRightDown(tech)))
                         }
                     >
                         {tech}
@@ -25,8 +35,10 @@ class ButtonGroup extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        callChangeLeft: tech => dispatch(changeLeft(tech)),
-        callChangeRight: tech => dispatch(changeRight(tech))
+        callChangeLeftTop: tech => dispatch(changeLeftTop(tech)),
+        callChangeLeftDown: tech => dispatch(changeLeftDown(tech)),
+        callChangeRightTop: tech => dispatch(changeRightTop(tech)),
+        callChangeRightDown: tech => dispatch(changeRightDown(tech))
     };
 };
 

@@ -1,10 +1,25 @@
-import { CHANGE_LEFT, CHANGE_RIGHT } from "./actionTypes";
-export const changeLeft = tech => ({
-    type: CHANGE_LEFT,
+import {
+    CHANGE_LEFT_TOP,
+    CHANGE_LEFT_DOWN,
+    CHANGE_RIGHT_TOP,
+    CHANGE_RIGHT_DOWN
+} from "./actionTypes";
+export const changeLeftTop = tech => ({
+    type: CHANGE_LEFT_TOP,
     tech
 });
 
-export const changeRight = tech => ({
-    type: CHANGE_RIGHT,
+export const changeLeftDown = tech => ({
+    type: CHANGE_LEFT_DOWN,
+    tech
+});
+
+export const changeRightTop = tech => ({
+    type: CHANGE_RIGHT_TOP,
+    tech
+});
+
+export const changeRightDown = tech => ({
+    type: CHANGE_RIGHT_DOWN,
     tech
 });

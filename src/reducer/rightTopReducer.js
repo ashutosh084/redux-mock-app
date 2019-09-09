@@ -1,12 +1,12 @@
-import { CHANGE_LEFT } from "../action/actionTypes";
+import { CHANGE_RIGHT_TOP } from "../action/actionTypes";
 
 const initialState = {
     tech: "Hello"
 };
 
-const leftReducer = (state = initialState, action) => {
+const rightTopReducer = (state = initialState, action) => {
     switch (action.type) {
-        case CHANGE_LEFT:
+        case CHANGE_RIGHT_TOP:
             return {
                 ...state,
                 tech: action.tech
@@ -16,4 +16,4 @@ const leftReducer = (state = initialState, action) => {
     }
 };
 
-export default leftReducer;
+export default rightTopReducer;

@@ -3,14 +3,14 @@ import MyScreen from "./MyScreen";
 import ButtonGroup from "./ButtonGroup";
 import { connect } from "react-redux";
 
-class LeftComponent extends Component {
+class LeftDownComponent extends Component {
     render() {
         return (
             <div class="container">
                 <div
                     class="col"
                     style={{
-                        background: "#5daae0",
+                        background: "#fc7500",
                         borderRadius: "5px",
                         margin: "5% 0"
                     }}
@@ -21,7 +21,7 @@ class LeftComponent extends Component {
                     <div class="row" style={{ padding: "5% 0 10% 30%" }}>
                         <ButtonGroup
                             key={2}
-                            side="left"
+                            side="leftDown"
                             technologies={["Button A", "Button B", "Button C"]}
                         />
                     </div>
@@ -32,7 +32,7 @@ class LeftComponent extends Component {
 }
 
 const mapStateToProps = state => ({
-    mdata: state.left
+    mdata: state.leftDown
 });
 
-export default connect(mapStateToProps)(LeftComponent);
+export default connect(mapStateToProps)(LeftDownComponent);

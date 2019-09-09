@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import "./App.css";
-import RightComponent from "./components/RightComponent";
-import LeftComponent from "./components/LeftComponent";
+import LeftTopComponent from "./components/LeftTopComponent";
+import LeftDownComponent from "./components/LeftDownComponent";
+import RightTopComponent from "./components/RightTopComponent";
+import RightDownComponent from "./components/RightDownComponent";
 
 class App extends Component {
     render() {
@@ -20,8 +22,8 @@ class App extends Component {
                             Without Saga
                         </h1>
                     </div>
-                    <LeftComponent />
-                    <RightComponent />
+                    <LeftTopComponent />
+                    <LeftDownComponent />
                 </div>
                 <div style={{ width: "50%" }}>
                     <div>
@@ -29,8 +31,8 @@ class App extends Component {
                             With Saga
                         </h1>
                     </div>
-                    <LeftComponent />
-                    <RightComponent />
+                    <RightTopComponent />
+                    <RightDownComponent />
                 </div>
             </div>
         );
